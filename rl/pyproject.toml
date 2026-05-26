@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omtg-rl-env"
+version = "0.1.0"
+description = "Minimal RL environment for OMTG training"
+requires-python = ">=3.10"
+dependencies = [
+    "accelerate",
+    "codetiming",
+    "datasets",
+    "deepspeed>=0.18.2",
+    "dill",
+    "flash-attn>=2.8.3",
+    "hydra-core",
+    "numpy<2.0.0",
+    "openai>=1.30.0",
+    "packaging>=20.0",
+    "pandas",
+    "peft",
+    "pyarrow>=19.0.0",
+    "pybind11",
+    "pylatexenc",
+    "PyYAML>=6.0",
+    "qwen-vl-utils==0.0.14",
+    "ray[default]>=2.41.0",
+    "scipy>=1.11.0",
+    "tensordict>=0.8.0,<=0.10.0,!=0.9.0",
+    "tensorboard",
+    "torch==2.8.0",
+    "torchdata",
+    "torchvision==0.23.0",
+    "vllm>=0.8.5,<=0.11.0",
+    "wandb",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[tool.uv]
+no-build-isolation-package = ["flash-attn"]
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["omtg_reward*", "omtg_judge*", "omtg_utils*"]
+exclude = ["verl*"]

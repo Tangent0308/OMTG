@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omtg-qwen3vl-env"
+version = "0.1.0"
+description = "Official ms-swift environment for OMTG SFT training"
+requires-python = ">=3.10"
+dependencies = [
+    "ms-swift",
+    "decord2>=2.0.0",
+    "datasets>=4.4.1",
+    "deepspeed>=0.18.2",
+    "einops>=0.8.1",
+    "flash-attn>=2.8.3",
+    "json-repair>=0.53.0",
+    "modelscope>=1.32.0",
+    "msgspec>=0.19.0",
+    "omegaconf>=2.3.0",
+    "pandas>=2.3.3",
+    "peft>=0.18.0",
+    "pydantic>=2.12.4",
+    "qwen-vl-utils==0.0.14",
+    "ray>=2.51.1",
+    "torch==2.8.0",
+    "torchcodec==0.6",
+    "torchvision==0.23.0",
+    "transformers==4.57.0",
+    "wandb>=0.23.1",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[tool.uv]
+no-build-isolation-package = ["flash-attn"]

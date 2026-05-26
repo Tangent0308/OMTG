@@ -1,0 +1,28 @@
+# Data and checkpoints
+/data
+/checkpoints
+
+# Training outputs and logs
+/outputs/
+/logs/
+/.cache/
+/wandb/
+/tensorboard/
+/transformers/
+*.log
+
+# Python environments and build metadata
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+
+# IDE and OS artifacts
+.DS_Store
+.idea/
+.vscode/
+.gemini/
