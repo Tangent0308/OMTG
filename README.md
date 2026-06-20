@@ -24,7 +24,7 @@ Jason Li
 # Updates
 
 - 2026.05.01, **Towards One-to-Many Temporal Grounding** is accepted by **ICML 2026**!!!
-- 2026.05.01, we release the project page, paper, OMTG-56k dataset, OMTG Bench benchmark, and training code.
+- 2026.06, we release the project page, paper, OMTG-56k dataset, OMTG Bench benchmark, and training code.
 
 # Quick Start
 
